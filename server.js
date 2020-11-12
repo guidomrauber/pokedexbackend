@@ -5,16 +5,26 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8080"
 };
-
-app.use(cors(corsOptions));
+let allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Headers', "*");
+  next();
+}
+app.use(allowCrossDomain);
+//app.use((req, res, next) => {
+//  res.header('Access-Control-Allow-Origin', '*');
+ // req.header('Access-Control-Allow-Origin', '*');
+ // next();
+//});
+ app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-app.use(bodyParser.json());
+ app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./models");
 db.sequelize.sync();
 db.sequelize.sync({ force: true }).then(() => {

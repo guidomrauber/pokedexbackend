@@ -10,14 +10,13 @@ var corsOptions = {
 let allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', "*");
   res.header('Access-Control-Allow-Headers', "*");
+  res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 }
 app.use(allowCrossDomain);
-//app.use((req, res, next) => {
-//  res.header('Access-Control-Allow-Origin', '*');
- // req.header('Access-Control-Allow-Origin', '*');
- // next();
-//});
+
  app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -25,13 +24,15 @@ app.use(allowCrossDomain);
 
 // parse requests of content-type - application/x-www-form-urlencoded
  app.use(bodyParser.urlencoded({ extended: true }));
+ 
+
 const db = require("./models");
 db.sequelize.sync();
-db.sequelize.sync({ force: true }).then(() => {
+//db.sequelize.sync({ force: true }).then(() => {
 
-    console.log("Drop and re-sync db.");
+ //   console.log("Drop and re-sync db.");
     
-    });
+ //   });
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to esparkinfo application." });

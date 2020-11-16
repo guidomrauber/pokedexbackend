@@ -21,7 +21,7 @@ module.exports = app => {
     // Delete a Pokedex with id
     router.delete("/:id", pokedexs.delete);
   
-    // Create a new Pokedex
+    // delete all Pokedex
     router.delete("/", pokedexs.deleteAll);
   
     app.use('/api/pokedexs', router);

@@ -10,9 +10,9 @@ var corsOptions = {
 let allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', "*");
   res.header('Access-Control-Allow-Headers', "*");
-  res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+  req.header('Access-Control-Allow-Origin', "*");
+  req.header('Access-Control-Allow-Headers', "*");
+  
   next();
 }
 app.use(allowCrossDomain);
@@ -35,7 +35,7 @@ db.sequelize.sync();
  //   });
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to esparkinfo application." });
+  res.json({ message: "Welcome to pokedexs application." });
 });
 require("./routes/pokedex.routes")(app);
 // set port, listen for requests

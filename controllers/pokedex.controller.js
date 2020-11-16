@@ -22,7 +22,9 @@ exports.create = (req, res) => {
   // Save Pokemon in the database
   Pokedex.create(pokedex)
     .then(data => {
-      res.send(data);
+      res.send({
+        message: "Pokedex was created  successfully." 
+      });
     })
     .catch(err => {
       res.status(500).send({

@@ -4,20 +4,11 @@ es sobre un crud completo con los siguientes programas
 
 node-js-with-mysql-using-sequelize-express
 
-Tengo dudas si se puede conectarse el frontend con este backend en el mismo puerto
+backend primer parte de la api , manejos de crud y creando server
 
-Ejemplos que veo son distintos frameworks y distintos puertos 
+la base de datos es pokedex_db
 
-Distintos programas ejemplo Nodejs y Angular son algunos de los ejemplos 
+busqueda y formacion de un equipo de pokedex 
 
-El problema del CORS lo solucione por el problema en el header con el content-type 
+se hace arrancar el programa con node server.js
 
-pero me surge otros problemas o error ejemplo como que esta demas una } o un ) y si uno lo ve no sobra ni falta 
-
-o problemas con el require por ejemplo me dice no esta definido
-
-o en el fetch o axios o el que sea que intento guardar o leer datos al servidor , me dice typeerror cuando esta correcto
-
-Pongo el mismo code del postman y me salta esos errores , cuando se supone en el postman anda sin problemas 
-
-o sea no tiene lógica, por eso dudo si se puede hacer la conexion dentro del mismo puerto 
